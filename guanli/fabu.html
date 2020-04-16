@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset='utf-8'>
+    <title>发布活动内容</title>
+    <!--link要在head里面 连接外部文件-->
+    <link rel="stylesheet" type="text/css" href="fabu.css">
+	<!--js部分--> 
+	<script src="jquery-3.2.1.js"></script>
+	<script src="chongfu.js"></script>
+	
+</head>
+<!--主体部分-->
+<body onload="getXianshi();">
+	<!--顶部导航栏-->  
+        <div id="top">	
+		  <ul class="shuiping">
+		    <li class="top-first"><a id="home" href="http://www.skydragon.vip/Homepage.html">返回首页</a></li>
+			<li class="top-center"><a href="http://www.skydragon.vip/All-announcement-list.html"> 公告内容  </a></li>
+		    <li class="top-center"><a href="http://www.skydragon.vip/All-goodthings-list.html"> 好人好事 </a></li>
+		    <li class="top-center"><a href="http://www.skydragon.vip/All-publicconnect-list.html"> 公益连接 </a></li>
+		    <li class="top-center"><a href="http://www.skydragon.vip/All-publicvideo-list.html"> 公益活动  </a></li>
+		  </ul>
+		</div>	
+	<!--中间陪衬-->  
+	    <div id="center">
+		   <li class="center-first">发布活动内容</li>
+		       <!--搜索栏-->
+               <div id="searchbox">
+			         <input type="text" class="search" id="search" placeholder="请输入关键字">
+                     <div id="searchbox-last" onclick="isGoto()">
+					 搜索
+                     </div>
+               </div>      
+		</div>
+		<hr/> 	
+	    
+
+    <!--topic界面--> 
+	    <div id="center-topic"> 
+		    <input> 
+	        <h2 ><p id="topic" class="buhuan"> <!--习近平指导！为了人民群众的生命安全，要严防严控！--> </h2>
+	    </div>
+		
+		
+	<!--content界面--> 
+        <div id="center-content">
+		      <textarea>         </textarea> 
+              <p id="content" class="buhuan">
+			  
+		         
+		
+		
+         	   <!--作者和时间部分--> 
+               <hr/>		
+		       <div id="center-content-bottom">
+			   
+			   <div id="time">
+			   <p id="shijian" class="buhuan">  
+			   </div>
+			   
+		        <div class="neibu">
+				 时间:<input>
+				</div>
+				
+				
+				<div id="author">
+				<p id="zuozhe" class="buhuan"> 
+			
+				</div>
+				
+				<div class="neibu">
+				作者:<input>
+				</div>
+								
+		       </div>	
+		</div>	
+<!--页脚-->
+      <div id="bottom-footer"> 
+	  <a href="#" class="bottom">返回顶部</a>
+	  |
+	  <a href="#">关于我们</a>	  
+	  |
+	  <a href="#">投稿须知</a>	
+	  |
+	  <a href="#">网站声明</a>	
+	  |
+	  <a href="#">联系我们</a>	
+	  
+	  </div>
+      
+	  <!--底端信息栏-->
+	  <div id="bottom">
+	  <a href="http://beian.miit.gov.cn/" target="_blank"><p>渝ICP备19006881号</p></a> 
+	  <p>作者:   陈天龙</p>
+	  <p>学校:西南大学</p>
+	  <p>作者联系方式：a809653361@icloud.com</p>
+	  <p>举报虚假信息:<a href="#">举报链接</a></p>
+	  
+	  </div>
+</body>
+</html>
+    <script>
+	  
+	</script>

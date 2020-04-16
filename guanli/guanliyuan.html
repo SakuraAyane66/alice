@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset='utf-8'>
+    <title>管理员界面</title>
+    <!--link要在head里面 连接外部文件-->
+    <link rel="stylesheet" type="text/css" href="guanli.css">
+	<!--js部分--> 
+	<script src="jquery-3.2.1.js"></script>
+	<script>
+	var i;
+	page=1;//页码	
+	y=1;
+	/*获取json属性个数的函数*/
+	function getJsonLength(jsonData){
+             var jsonLength = 0;
+             for(var item in jsonData)
+			        {
+                     jsonLength++;}          
+             return jsonLength;
+             }
+	//公告数据获取
+	function getAnnouncement(){
+				$.get("announcement.php",
+					function(data, status){	
+                        y=1;					
+                        x=getJsonLength(data.announcement);	//x为全局变量，第一次onload获取到的json数据属性个数                       						
+                        page=1;
+						document.getElementById("databaseid").value=-1;
+                        //初始化all-list界面	
+                       	 for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML="";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }			
+					      for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML=data.announcement[i].hyperlink;
+	                          document.getElementById("topic"+i).innerHTML= data.announcement[i].topic;
+							  document.getElementById("dataid"+i).innerHTML=data.announcement[i].id;						 
+							  document.getElementById("time"+i).innerHTML=data.announcement[i].time1;
+							  document.getElementById("author"+i).innerHTML=data.announcement[i].author;	
+							  document.getElementById("databaseid"+i).value=data.announcement[i].id;
+						     }	
+						
+					  }
+				);
+			}
+	//好人好事数据获取
+	function getGoodthings(){
+	            y="goodthings";
+				$.get(y+".php",
+					function(data, status){		
+                        x=getJsonLength(data.goodthings);	//x为全局变量，第一次onload获取到的json数据属性个数	
+						page=1;
+						y=2;
+						document.getElementById("databaseid").value=-2;
+                         //初始化all-list界面	
+                       	 for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML= "";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }			 
+					      for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML=data.goodthings[i].hyperlink;
+	                          document.getElementById("topic"+i).innerHTML= data.goodthings[i].topic;
+							  document.getElementById("dataid"+i).innerHTML=data.goodthings[i].id;
+							  document.getElementById("time"+i).innerHTML=data.goodthings[i].time1;
+							  document.getElementById("author"+i).innerHTML=data.goodthings[i].author;	
+							  document.getElementById("databaseid"+i).value=data.goodthings[i].id;
+						     }
+					}
+				);
+			}
+	//公益链接数据获取
+	function getPublicconnect(){
+				$.get("publicconnect.php",
+					function(data, status){		
+                        x=getJsonLength(data.publicconnect);	//x为全局变量，第一次onload获取到的json数据属性个数		
+                        page=1;		
+                        y=3;
+						document.getElementById("databaseid").value=-3;
+                         //初始化all-list界面	
+                         for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML= "";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";
+							  document.getElementById("databaseid"+i).value="";
+						     }								 
+					      for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML=data.publicconnect[i].hyperlink;
+	                          document.getElementById("topic"+i).innerHTML= data.publicconnect[i].topic;
+							  document.getElementById("dataid"+i).innerHTML=data.publicconnect[i].id;
+							  document.getElementById("time"+i).innerHTML=data.publicconnect[i].time1;
+							  document.getElementById("author"+i).innerHTML=data.publicconnect[i].author;
+ 							  document.getElementById("databaseid"+i).value=data.publicconnect[i].id;
+						     }						
+					}
+				);
+			}		
+	//公益视频获取
+	function getPublicvideo(){
+				$.get("publicvideo.php",
+					function(data, status){		
+                        x=getJsonLength(data.publicvideo);	//x为全局变量，第一次onload获取到的json数据属性个数	
+                        y=4;	
+						page=1;
+						document.getElementById("databaseid").value=-4;
+                         //初始化all-list界面 
+                       	  for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML= "";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }			 
+					      for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML=data.publicvideo[i].hyperlink;
+	                          document.getElementById("topic"+i).innerHTML= data.publicvideo[i].topic;
+							  document.getElementById("dataid"+i).innerHTML=data.publicvideo[i].id;
+							  document.getElementById("time"+i).innerHTML=data.publicvideo[i].time1;
+							  document.getElementById("author"+i).innerHTML=data.publicvideo[i].author;	
+							  document.getElementById("databaseid"+i).value=data.publicvideo[i].id;
+						     }
+					}
+				);
+			}
+	//上一页数据
+	function getPreviouspage(){
+	             if(page==1){
+				   alert("已经是最新一页了！");
+				   return false;
+				 }else {
+				    if(y==1){
+					$.get("announcement.php",
+					    function(data, status){	
+                         page=page-1;//解析到数据之后page先-1
+						document.getElementById("databaseid").value=-1;
+					    for(i=0;i<18;i++){						    
+							document.getElementById("hyperlink"+i).innerHTML=data.announcement[18*page-18+i].hyperlink;
+	                        document.getElementById("topic"+i).innerHTML = data.announcement[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.announcement[18*page-18+i].id;
+							document.getElementById("time"+i).innerHTML=data.announcement[18*page-18+i].time1;
+							document.getElementById("author"+i).innerHTML=data.announcement[18*page-18+i].author;
+							document.getElementById("databaseid"+i).value=data.announcement[18*page-18+i].id;
+						   }
+					     }
+				       );							
+					}else if(y==2){
+					 $.get("goodthings.php",
+					    function(data, status){	
+                         page=page-1;//解析到数据之后page先-1
+						document.getElementById("databaseid").value=-2; 
+					    for(i=0;i<18;i++){						    
+							document.getElementById("hyperlink"+i).innerHTML=data.goodthings[18*page-18+i].hyperlink;
+	                        document.getElementById("topic"+i).innerHTML = data.goodthings[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.goodthings[18*page-18+i].id;
+							document.getElementById("time"+i).innerHTML=data.goodthings[18*page-18+i].time1;
+							document.getElementById("author"+i).innerHTML=data.goodthings[18*page-18+i].author;	
+							document.getElementById("databaseid"+i).value=data.goodthings[18*page-18+i].id;
+						   }
+					     }
+				       );								
+					}else if(y==3){
+					 $.get("publicconnect.php",
+					    function(data, status){	
+                         page=page-1;//解析到数据之后page先-1	
+						document.getElementById("databaseid").value=-3; 
+					    for(i=0;i<18;i++){						    
+							document.getElementById("hyperlink"+i).innerHTML=data.publicconnect[18*page-18+i].hyperlink;
+	                        document.getElementById("topic"+i).innerHTML = data.publicconnect[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.publicconnect[18*page-18+i].id;
+							document.getElementById("time"+i).innerHTML=data.publicconnect[18*page-18+i].time1;
+							document.getElementById("author"+i).innerHTML=data.publicconnect[18*page-18+i].author;
+							document.getElementById("databaseid"+i).value=data.publicconnect[18*page-18+i].id;
+							
+						   }
+					     }
+				       );						
+					}else if(y==4){
+					 $.get("publicvideo.php",
+					    function(data, status){	
+                         page=page-1;//解析到数据之后page先-1	
+						document.getElementById("databaseid").value=-4;
+					    for(i=0;i<18;i++){						    
+							document.getElementById("hyperlink"+i).innerHTML=data.publicvideo[18*page-18+i].hyperlink;
+	                        document.getElementById("topic"+i).innerHTML = data.publicvideo[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.publicvideo[18*page-18+i].id;
+							document.getElementById("time"+i).innerHTML=data.publicvideo[18*page-18+i].time1;
+							document.getElementById("author"+i).innerHTML=data.publicvideo[18*page-18+i].author;
+							document.getElementById("databaseid"+i).value=data.publicvideo[18*page-18+i].id;
+						   }
+					     }
+				       );
+					}						   
+				}
+			}
+	//下一页数据
+	function getNextpage(){
+	             if(page==Math.ceil(x/18)){
+				    //alert(Math.ceil(x/18));
+				    alert("已经是最后一页了！");
+				    return false;		 
+				 }else {	
+                    page=page+1;//page先+1	
+					
+					//判断是否是最后一页
+					if(page==Math.ceil(x/18)){
+                    if(y==1){
+					$.get("announcement.php",
+					    function(data, status){	
+						    document.getElementById("databaseid").value=-1;
+					        //显示余下部分
+					        for(i=0;i<(x%18);i++){
+					            document.getElementById("hyperlink"+i).innerHTML=data.announcement[18*page-18+i].hyperlink;
+	                            document.getElementById("topic"+i).innerHTML = data.announcement[18*page-18+i].topic;
+						        document.getElementById("dataid"+i).innerHTML=data.announcement[18*page-18+i].id;
+							    document.getElementById("time"+i).innerHTML=data.announcement[18*page-18+i].time1;
+							    document.getElementById("author"+i).innerHTML=data.announcement[18*page-18+i].author;
+								document.getElementById("databaseid"+i).value=data.announcement[18*page-18+i].id;
+								}
+                      		for(i=(x%18);i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML="";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }						
+					    }
+				      );
+                    }else if(y==2){
+					 $.get("goodthings.php",
+					    function(data, status){	
+						    document.getElementById("databaseid").value=-2;
+					        //显示余下部分
+					        for(i=0;i<(x%18);i++){
+					            document.getElementById("hyperlink"+i).innerHTML=data.goodthings[18*page-18+i].hyperlink;
+	                            document.getElementById("topic"+i).innerHTML = data.goodthings[18*page-18+i].topic;
+						        document.getElementById("dataid"+i).innerHTML=data.goodthings[18*page-18+i].id;
+							    document.getElementById("time"+i).innerHTML=data.goodthings[18*page-18+i].time1;
+							    document.getElementById("author"+i).innerHTML=data.goodthings[18*page-18+i].author;
+								document.getElementById("databaseid"+i).value=data.goodthings[18*page-18+i].id;
+								}
+                      		for(i=(x%18);i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML="";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }						
+					    }
+				      );				
+					}else if(y==3){
+					 $.get("publicconnect.php",
+					    function(data, status){	
+						     document.getElementById("databaseid").value=-3;
+					        //显示余下部分
+					        for(i=0;i<(x%18);i++){
+					            document.getElementById("hyperlink"+i).innerHTML=data.publicconnect[18*page-18+i].hyperlink;
+	                            document.getElementById("topic"+i).innerHTML = data.publicconnect[18*page-18+i].topic;
+						        document.getElementById("dataid"+i).innerHTML=data.publicconnect[18*page-18+i].id;
+							    document.getElementById("time"+i).innerHTML=data.publicconnect[18*page-18+i].time1;
+							    document.getElementById("author"+i).innerHTML=data.publicconnect[18*page-18+i].author;
+								document.getElementById("databaseid"+i).value=data.publicconnect[18*page-18+i].id;
+								}
+                      		for(i=(x%18);i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML="";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }						
+					    }
+				      );
+					}else if(y==4){
+					 $.get("publicvideo.php",
+					    function(data, status){
+						    document.getElementById("databaseid").value=-4;
+					        //显示余下部分
+					        for(i=0;i<(x%18);i++){
+					            document.getElementById("hyperlink"+i).innerHTML=data.publicvideo[18*page-18+i].hyperlink;
+	                            document.getElementById("topic"+i).innerHTML = data.publicvideo[18*page-18+i].topic;
+						        document.getElementById("dataid"+i).innerHTML=data.publicvideo[18*page-18+i].id;
+							    document.getElementById("time"+i).innerHTML=data.publicvideo[18*page-18+i].time1;
+							    document.getElementById("author"+i).innerHTML=data.publicvideo[18*page-18+i].author;
+								document.getElementById("databaseid"+i).value=data.publicvideo[18*page-18+i].id;
+								}
+                      		for(i=(x%18);i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML="";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }						
+					    }
+				      );
+					}										  
+                      return false;					  
+					}else{
+                      if(y==1){
+					$.get("announcement.php",
+					    function(data, status){	
+						document.getElementById("databaseid").value=-1;
+					    for(i=0;i<18;i++){						    
+							document.getElementById("hyperlink"+i).innerHTML=data.announcement[18*page-18+i].hyperlink;
+	                        document.getElementById("topic"+i).innerHTML = data.announcement[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.announcement[18*page-18+i].id;
+							document.getElementById("time"+i).innerHTML=data.announcement[18*page-18+i].time1;
+							document.getElementById("author"+i).innerHTML=data.announcement[18*page-18+i].author;
+							document.getElementById("databaseid"+i).value=data.announcement[18*page-18+i].id;
+						   }
+					     }
+				       );							
+					}else if(y==2){
+					 $.get("goodthings.php",
+					    function(data, status){	
+						document.getElementById("databaseid").value=-2;
+					    for(i=0;i<18;i++){						    
+							document.getElementById("hyperlink"+i).innerHTML=data.goodthings[18*page-18+i].hyperlink;
+	                        document.getElementById("topic"+i).innerHTML = data.goodthings[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.goodthings[18*page-18+i].id;
+							document.getElementById("time"+i).innerHTML=data.goodthings[18*page-18+i].time1;
+							document.getElementById("author"+i).innerHTML=data.goodthings[18*page-18+i].author;	
+							document.getElementById("databaseid"+i).value=data.goodthings[18*page-18+i].id;
+						   }
+					     }
+				       );								
+					}else if(y==3){
+					 $.get("publicconnect.php",
+					    function(data, status){	
+						document.getElementById("databaseid").value=-3;
+					    for(i=0;i<18;i++){						    
+							document.getElementById("hyperlink"+i).innerHTML=data.publicconnect[18*page-18+i].hyperlink;
+	                        document.getElementById("topic"+i).innerHTML = data.publicconnect[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.publicconnect[18*page-18+i].id;
+							document.getElementById("time"+i).innerHTML=data.publicconnect[18*page-18+i].time1;
+							document.getElementById("author"+i).innerHTML=data.publicconnect[18*page-18+i].author;
+                            document.getElementById("databaseid"+i).value=data.publicconnect[18*page-18+i].id;							
+						   }
+					     }
+				       );						
+					}else if(y==4){
+					 $.get("publicvideo.php",
+					    function(data, status){	
+						document.getElementById("databaseid").value=-4;
+					    for(i=0;i<18;i++){						    
+							document.getElementById("hyperlink"+i).innerHTML=data.publicvideo[18*page-18+i].hyperlink;
+	                        document.getElementById("topic"+i).innerHTML = data.publicvideo[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.publicvideo[18*page-18+i].id;
+							document.getElementById("time"+i).innerHTML=data.publicvideo[18*page-18+i].time1;
+							document.getElementById("author"+i).innerHTML=data.publicvideo[18*page-18+i].author;
+							document.getElementById("databaseid"+i).value=data.publicvideo[18*page-18+i].id;
+						   }
+					     }
+				       );
+				      }		  
+				    } 
+				 }
+			 }
+			 
+			 
+	/*获取checkboxID
+	function getCheckid(){
+	 var obj = document.getElementsByName("selectIds");
+     var checkVal= [];//获取选中的id
+     for(var k in obj){
+        if(obj[k].checked){
+          checkVal.push(obj[k].value);
+　　     }
+       }  
+     return checkVal;	   
+     }
+	*/
+	
+	
+	//跳转到当前界面,需要些innerHTML里面的内容
+	/*function gotoSearch(){
+	var a=document.getElementById("search").value;
+	window.location.innerHTML="Search.html?keywords="+a;
+	}*/
+	</script>
+</head>
+<!--主体部分-->
+<body onload="getAnnouncement();">
+	<!--顶部导航栏-->  
+        <div id="top">	
+		  <ul class="shuiping">
+		    <li class="top-center" onclick="getAnnouncement()"> 全部公告内容  </li>
+		    <li class="top-center" onclick="getGoodthings()">全部好人好事内容  </li>
+			<li class="top-center" onclick="getPublicconnect()">全部链接内容  </li>
+		    <li class="top-center" onclick="getPublicvideo()">全部视频内容 </li>
+		  </ul>
+		</div>	
+	<!--中间陪衬-->  
+	    <div id="center">
+		   <li class="center-first">管理界面内容 </li>     
+		</div>
+		 <hr/> 	
+		
+		
+		<form method="post" action="shanchu.php">
+		<table border="1" >
+		    <tr>
+			    <td><input id="databaseid" type="checkbox" name="checkbox[]" value="" checked>勾选</td>
+                <td>ID</td>
+                <td>超链接</td>
+                <td>topic</td>
+                <td>时间</td>
+                <td>作者</td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid0" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid0"></td>
+                <td id="hyperlink0"></td>
+                <td id="topic0"></td>
+                <td id="time0"></td>
+                <td id="author0"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid1" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid1"></td>
+                <td id="hyperlink1"></td>
+                <td id="topic1"></td>
+                <td id="time1"></td>
+                <td id="author1"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid2" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid2"></td>
+                <td id="hyperlink2"></td>
+                <td id="topic2"></td>
+                <td id="time2"></td>
+                <td id="author2"></td>
+            </tr>
+			  <tr>
+			    <td><input id="databaseid3" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid3"></td>
+                <td id="hyperlink3"></td>
+                <td id="topic3"></td>
+                <td id="time3"></td>
+                <td id="author3"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid4" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid4"></td>
+                <td id="hyperlink4"></td>
+                <td id="topic4"></td>
+                <td id="time4"></td>
+                <td id="author4"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid5" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid5"></td>
+                <td id="hyperlink5"></td>
+                <td id="topic5"></td>
+                <td id="time5"></td>
+                <td id="author5"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid6" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid6"></td>
+                <td id="hyperlink6"></td>
+                <td id="topic6"></td>
+                <td id="time6"></td>
+                <td id="author6"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid7" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid7"></td>
+                <td id="hyperlink7"></td>
+                <td id="topic7"></td>
+                <td id="time7"></td>
+                <td id="author7"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid8" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid8"></td>
+                <td id="hyperlink8"></td>
+                <td id="topic8"></td>
+                <td id="time8"></td>
+                <td id="author8"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid9" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid9"></td>
+                <td id="hyperlink9"></td>
+                <td id="topic9"></td>
+                <td id="time9"></td>
+                <td id="author9"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid10" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid10"></td>
+                <td id="hyperlink10"></td>
+                <td id="topic10"></td>
+                <td id="time10"></td>
+                <td id="author10"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid11" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid11"></td>
+                <td id="hyperlink11"></td>
+                <td id="topic11"></td>
+                <td id="time11"></td>
+                <td id="author11"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid12" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid12"></td>
+                <td id="hyperlink12"></td>
+                <td id="topic12"></td>
+                <td id="time12"></td>
+                <td id="author12"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid13" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid13"></td>
+                <td id="hyperlink13"></td>
+                <td id="topic13"></td>
+                <td id="time13"></td>
+                <td id="author13"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid14" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid14"></td>
+                <td id="hyperlink14"></td>
+                <td id="topic14"></td>
+                <td id="time14"></td>
+                <td id="author14"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid15" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid15"></td>
+                <td id="hyperlink15"></td>
+                <td id="topic15"></td>
+                <td id="time15"></td>
+                <td id="author15"></td>
+            </tr>
+			 <tr>
+			    <td><input id="databaseid16" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid16"></td>
+                <td id="hyperlink16"></td>
+                <td id="topic16"></td>
+                <td id="time16"></td>
+                <td id="author16"></td>
+            </tr>
+	        <tr>
+			    <td><input id="databaseid17" type="checkbox" name="checkbox[]" value=""></td>
+                <td id="dataid17"></td>
+                <td id="hyperlink17"></td>
+                <td id="topic17"></td>
+                <td id="time17"></td>
+                <td id="author17"></td>
+            </tr>
+         </table>
+		 
+		 <input type="submit" value="删除">
+		 <input type="button" onclick="" value="修改">
+		 <input type="button" onclick="" value="增加">
+		</form>
+		
+		
+		
+          <hr/>		
+		  <div id="center-left-bottom">
+		     <input type="button" onclick="getPreviouspage()" value="上一页">			 			 
+		     <input type="button" onclick="getNextpage()" class="last" value="下一页">
+		  </div>	
+		</div>
+	
+
+</html>
