@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head> 
+   <meta charset='utf-8'>
+   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />-->
+   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />-->
+   <title>首页</title>
+    <!--link要在head里面 连接外部文件,这部分是原始文件
+	 <link rel="stylesheet" type="text/css" href="Style.css">
+   -->
+
+	<!--js部分-->
+	<link id="css" rel="stylesheet" type="text/css" href="" >
+	<script src="jquery-3.2.1.js"></script>
+	<script src="load.js"></script>
+	
+</head>
+       		
+        <!--网址主体部分-->
+<body onload="onLoad();"> <!--onload="getAnnouncement();"-->
+        
+       <!--顶部导航栏-->
+        <div id="top">	
+		<ul class="shuiping">
+		<li class="top-first"><a  href="http://www.skydragon.vip/Homepage.html" > 首页 </a></li>
+		<li class="top-center"><a href="#center-top"> 头条内容 </a></li>
+		<li class="top-center"><a href="#center-center"> 公益快讯  </a></li>
+		<li class="top-center"><a href="http://www.skydragon.vip/Search.html"> 站内搜索  </a></li>
+		<!--登录按键-->
+		
+		<li class="top-last" id="tuichu"><button class="login"> <a href="http://www.skydragon.vip/check2.php"> 退出登录  </a> </button></li>
+		<li class="top-last" id="geren"><button class="login"> <a href="http://www.skydragon.vip/Person.html"> 个人中心  </a> </button></li>
+		<li class="top-last" id="zhuce"><button class="login" onclick="document.getElementById('id02').style.display='block'">  注册   </button></li>
+		<li class="top-last" id="denglu"><button class="login" onclick="document.getElementById('id01').style.display='block'">  登录   </button></li>
+		
+		</ul>
+		</div>
+		
+ 
+
+        <!--中间靠上部分-->
+		
+        <div id="center-top">	
+        <h1 style="text-align:center;"> 头条内容  </h1>
+		     <!--<input type="button" value="获取cookie" onclick="alert(get_cookie('username'));"/>-->
+		<a id="toutiao">
+		<h1 style="text-align:center;" id="toutiaoneirong">习近平主持会议决战疫情，丝毫不能放松！ </h1>
+
+		</a> 	   
+        </div>
+		
+        <!--整个中间主体部分-->
+		
+		<!--左边主体-->
+		<div id="center-left">
+           <!--左边上-->
+		   <div id="center-left-top">
+		   
+		   <div class="more"><a href="http://www.skydragon.vip/All-announcement-list.html">更多</a></div>
+		   <h2> 公告 </h2>   
+		   <hr/>
+		    <!--表格-->
+		    <ul >
+		     <a id="gonggao0" target="_blank"><li id="contents0">1 </li> </a>
+		     <a id="gonggao1" target="_blank"><li id="contents1"> askdjalkdjald</li></a>
+		     <a id="gonggao2" target="_blank"><li id="contents2"> 3 </li></a>
+		     <a id="gonggao3" target="_blank"><li id="contents3"> 4 </li></a>
+		     <a id="gonggao4" target="_blank"><li id="contents4"> 5 </li></a>
+		     <a id="gonggao5" target="_blank"><li id="contents5"> 6 </li></a>
+		     <a id="gonggao6" target="_blank"><li id="contents6"> 7 </li></a>
+		     <a id="gonggao7" target="_blank"><li id="contents7"> 8 </li></a>
+		     <a id="gonggao8" target="_blank"><li id="contents8"> 9 </li></a>	   
+		    </ul>
+		   </div>
+		   
+		   <!--左边下-->
+		   <div id="center-left-bottom">
+		   <div class="more"><a href="http://www.skydragon.vip/All-goodthings-list.html">更多</a></div>
+		   <h2> 好人好事</h2>
+		   <hr/>
+		       <!--表格-->	
+			   <ul>
+			      <a id="hrhs0" target="_blank"><li id="haoren0">1</li></a>
+			      <a id="hrhs1" target="_blank"><li id="haoren1">2</li></a>
+			      <a id="hrhs2" target="_blank"><li id="haoren2">3</li></a>
+			      <a id="hrhs3" target="_blank"><li id="haoren3">4</li></a>
+			      <a id="hrhs4" target="_blank"><li id="haoren4">5</li></a>
+			      <a id="hrhs5" target="_blank"><li id="haoren5">6</li></a>
+			      <a id="hrhs6" target="_blank"><li id="haoren6">7</li></a>
+			      <a id="hrhs7" target="_blank"><li id="haoren7">8</li></a> 
+		       </ul>		
+		   </div>
+		   
+		</div>
+			
+		<!--网页中间主体部分-->
+        <div id="center-center" class="div-inline">
+		     <div id="center-center-top">
+			 <!--这是网上的粘贴过来的-->
+          <div class="slideshow-container">
+              <div class="mySlides fade">
+              <div class="numbertext">1 / 3</div>
+              <a href="#center-center"><img src="./img/1.png" style="width:100%"></a>
+              <div class="text">文本 1</div>
+              </div>
+ 
+          <div class="mySlides fade">
+              <div class="numbertext">2 / 3</div>
+              <a href="#center-center"><img src="./img/2.jpg" style="width:100%"></a>
+              <div class="text">文本 2</div>
+              </div>
+ 
+          <div class="mySlides fade">
+              <div class="numbertext">3 / 3</div>
+              <a href="#center-center"><img src="./img/3.JPG" style="width:100%"></a>
+              <div class="text">文本 3</div>
+              </div>
+ 
+              <a class="prev" onclick="plusSlides(-1)">❮</a>
+              <a class="next" onclick="plusSlides(1)">❯</a>
+              </div>
+              <br>
+ 
+          <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
+              </div>
+              <script src="huadong.js"> </script>  <!--如果放在前面会因为不自动加载第一个，所以放在这儿-->
+            <!--这是网上的粘贴过来的-->
+			 </div>
+		  <div id="center-center-bottom">
+			  <ul>
+			     <li style="line-height:2">1</li>
+				 <li style="line-height:2">1</li>
+			     <li style="line-height:2">1</li>
+			     <li style="line-height:2">1</li>
+			  <ul>
+			 
+			 </div>
+		</div>
+        
+		<!--右边主体-->
+		<div id="center-right">
+		   <!--右边上-->
+		   <div id="center-right-top">
+		   <div class="more"><a href="http://www.skydragon.vip/All-publicconnect-list.html">更多</a></div>
+		        <h2> 公益链接</h2>
+		        <hr/>
+		        <!--表格-->	
+			    <ul>
+			         <a id="gylj0" target="_blank"><li id="lianjie0">1</li></a>
+			         <a id="gylj1" target="_blank"><li id="lianjie1">2</li></a>
+			         <a id="gylj2" target="_blank"><li id="lianjie2">3</li></a>
+			         <a id="gylj3" target="_blank"><li id="lianjie3">4</li></a>
+			         <a id="gylj4" target="_blank"><li id="lianjie4">5</li></a>
+			         <a id="gylj5" target="_blank"><li id="lianjie5">6</li></a>
+			         <a id="gylj6" target="_blank"><li id="lianjie6">7</li></a>
+			         <a id="gylj7" target="_blank"><li id="lianjie7">8</li></a> 
+			         <a id="gylj8" target="_blank"><li id="lianjie8">9</li></a>
+		        </ul>
+		   </div>
+		   <!--右边下-->
+		   <div id="center-right-bottom">
+
+		   <div class="more"><a href="http://www.skydragon.vip/All-publicvideo-list.html">更多</a></div>
+		   
+		        <h2> 公益活动</h2>
+		        <hr/>
+		        <!--表格-->	
+			    <ul class="shuiping">
+			         <a id="gysp0"  target="_blank"><li id="shipin0">1</li></a>
+			         <a id="gysp1"  target="_blank"><li id="shipin1">1</li></a>
+			         <a id="gysp2"  target="_blank"><li id="shipin2">1</li></a>
+			         <a id="gysp3"  target="_blank"><li id="shipin3">1</li></a>
+			         <a id="gysp4"  target="_blank"><li id="shipin4">1</li></a>
+			         <a id="gysp5"  target="_blank"><li id="shipin5">1</li></a>
+			         <a id="gysp6"  target="_blank"><li id="shipin6">1</li></a>
+			         <a id="gysp7"  target="_blank"><li id="shipin7">1</li></a>
+			         <a id="gysp8"  target="_blank"><li id="shipin8">1</li></a>		  
+		        </ul>		
+		   </div>
+      </div>
+     
+	  <!--页脚-->
+      <div id="bottom-footer"> 
+	  <a href="#" class="bottom">返回顶部</a>
+	  |
+	  <a href="#">关于我们</a>	  
+	  |
+	  <a href="#">投稿须知</a>	
+	  |
+	  <a href="#">网站声明</a>	
+	  |
+	  <a href="#">联系我们</a>	
+	  
+	  </div>
+      
+	  <!--底端信息栏-->
+	  <div id="bottom">
+	  <a href="http://beian.miit.gov.cn/" target="_blank"><p>渝ICP备19006881号</p></a> 
+	  <p>作者:   陈天龙</p>
+	  <p>学校:西南大学</p>
+	  <p>作者联系方式：a809653361@icloud.com</p>
+	  <p>举报虚假信息:<a href="http://www.skydragon.vip/report.php">举报链接</a></p>
+	  
+	  </div>
+
+<!--登录界面主体-->
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="check1.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="./img/login.jpg" alt="登录头像" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>用户名</b></label>
+      <input type="text" placeholder="Enter Username" name="user" required><!--required必填-->
+	  
+      <label><b>密码</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button class="login" type="submit">登陆</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancel">返回</button>
+      <span class="psw">新用户？<a href="#" onclick="gotoCreate()">注册账号</a></span>
+    </div>
+  </form>
+</div>
+
+<!--注册界面主体,跟登录相似-->
+<div id="id02" class="modal">
+                                                           <!--调用onsubmit方式验证密码是否一致-->
+  <form class="modal-content animate" action="create1.php" onsubmit="return isValidate()" method="post"> 
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="./img/login.jpg" alt="登录头像" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>用户名</b></label>
+      <input type="text" placeholder="Enter Username" name="user" required>
+	 
+      <label><b>密码</b></label>
+      <input type="password" placeholder="Enter Password" id="psw01" required>
+	  
+	  <label><b>确认密码</b></label>
+      <input type="password" placeholder="再次输入密码" name="password" id="psw02" required>
+      <button class="login" type="submit">注册</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancel">返回</button>
+    </div>
+  </form>
+</div>
+   
+   
+</body>
+</html>
+<script>
+	var i;
+    //js更改样式,推荐使用媒体查询器。
+	$(function(){
+	//判断屏幕宽度
+	var winWide = window.screen.width;  //获取当前屏幕分辨率
+	//alert("winWide"+winWide);
+	var wideScreen = false;
+	if(winWide <= 1024){  //1024及以下分辨率
+	//这里写要加载的代码
+	//alert("小于");
+	$("#css").attr("href", "mobile_style.css");
+	}
+	else{  //大于1024的分辨率
+	//这里写要加载的代码
+	$("#css").attr("href", "Style.css");
+	//alert("大于");
+	}
+    });		
+	//cookie的获取
+	function get_cookie(cookieName){
+    //判断cookie是否存在
+    if (document.cookie.length>0){
+        pos=document.cookie.indexOf(cookieName + "=")
+        if (pos!=-1){ 
+            pos=pos + cookieName.length+1 
+            last=document.cookie.indexOf(";",pos)
+            if (last==-1) last=document.cookie.length
+            return unescape(document.cookie.substring(pos,last))
+        } 
+      }
+     return null;
+    }
+
+	
+    //判断字符是否为空的方法	
+    function isEmpty(){ 
+       var username=get_cookie("username"); 
+       if(username==null){           
+	      //alert("为空");
+          return true;	        
+      }else{
+	     
+         return false;	    
+      }
+    }  
+     //页面样式切换
+    function isLogin(){      
+          if(isEmpty()){ 
+		       //等于true，未登录
+			   document.getElementById("geren").style.display='none';	  
+		       document.getElementById("tuichu").style.display='none';	                       				   
+             }   
+		   else{
+		       document.getElementById("zhuce").style.display='none';	
+			   document.getElementById("denglu").style.display='none'; 
+		   }   
+    }	
+	/*获取json属性个数的函数*/
+	function getJsonLength(jsonData){
+             var jsonLength = 0;
+             for(var item in jsonData)
+			        {
+                     jsonLength++;}          
+             return jsonLength;
+             }
+	
+	//公告数据获取
+	function getAnnouncement(){
+				$.get("announcement.php",
+					function(data, status){			                       					
+					    for(i=0;i<9;i++){
+						document.getElementById("gonggao"+i).href="Xianshi.html?db=announcement&id="+data.announcement[i].id;
+						document.getElementById("contents"+i).innerHTML = data.announcement[i].topic;
+						}
+					}
+				);
+			}
+	//好人好事数据获取
+	function getGoodthings(){
+				$.get("goodthings.php",
+					function(data, status){					    
+					    for(i=0;i<8;i++){
+						document.getElementById("hrhs"+i).href="Xianshi.html?db=goodthings&id="+data.goodthings[i].id;
+						document.getElementById("haoren"+i).innerHTML = data.goodthings[i].topic;
+						}
+					}
+				);
+			}
+	//公益链接数据获取
+	function getPublicconnect(){
+				$.get("publicconnect.php",
+					function(data, status){					    
+					    for(i=0;i<9;i++){
+						document.getElementById("gylj"+i).href="Xianshi.html?db=publicconnect&id="+data.publicconnect[i].id;
+						document.getElementById("lianjie"+i).innerHTML = data.publicconnect[i].topic;
+						}
+					}
+				);
+			}
+	//公益视频数据获取
+	function getPublicvideo(){
+				$.get("publicvideo.php",
+					function(data, status){					    
+					    for(i=0;i<9;i++){
+						document.getElementById("gysp"+i).href="Xianshi.html?db=publicvideo&id="+data.publicvideo[i].id;
+						document.getElementById("shipin"+i).innerHTML = data.publicvideo[i].topic;
+						}
+					}
+				);
+			}	
+	//头条内容数据获取
+	function getToutiao(){
+	            $.get("toutiao.php",
+					function(data, status){			
+                        //显示最新					
+						document.getElementById("toutiao").href="Xianshi.html?db=toutiao&id="+data.toutiao[0].id;
+						document.getElementById("toutiaoneirong").innerHTML = data.toutiao[0].topic;					
+					}
+				);
+	}
+	//判断密码输入是否相同
+	function isValidate(){
+	     var psw1=document.getElementById('psw01').value;
+	     var psw2=document.getElementById('psw02').value;	
+	         if(psw1==psw2){
+	         //执行提交
+			    alert("创建成功！");
+	            return true;
+	           }else {
+	           alert("2次密码输入不一致！请重试");
+               return false;			   
+	        }
+	}
+	//从登录跳转到注册
+	function gotoCreate(){
+	document.getElementById('id01').style.display='none';
+	document.getElementById('id02').style.display='block';	
+	}
+	//加载界面
+	function onLoad(){	       		
+	    isLogin();
+		getToutiao();
+	    getAnnouncement();
+		getPublicvideo();
+		getPublicconnect();
+		getGoodthings();
+	  }
+	
+	//清除所有cookie
+	/*function clearAllCookie() {
+      var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+			if(keys) {
+				for(var i = keys.length; i--;)
+				document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+				}
+	}*/
+    
+	
+	</script>

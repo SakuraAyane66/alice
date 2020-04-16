@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head> 
+   <meta charset='utf-8'>
+   <title>个人资料</title>
+    <!--link要在head里面 连接外部文件-->
+    <link rel="stylesheet" type="text/css" href="person.css">
+	<!--js部分-->
+	<script src="jquery-3.2.1.js"></script>
+	<script src="vue.js"></script>
+	<script src="chongfu.js"></script>
+	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+<body style="background-color:#f4f5f7;">
+  <div id="top">	
+          <!--使用了vue判断是否使用-->
+		  <ul v-bind:class="{shuiping:isUse}">
+		    <li class="top-first"><a id="home" href="http://www.skydragon.vip/Homepage.html">返回首页</a></li>
+			<li class="top-center"><a href="http://www.skydragon.vip/All-announcement-list.html"> 全部公告 </a></li>
+		    <li class="top-center"><a href="http://www.skydragon.vip/All-goodthings-list.html"> 好人好事 </a></li>
+		    <li class="top-center"><a href="http://www.skydragon.vip/All-publicconnect-list.html"> 公益连接 </a></li>
+		    <li class="top-center"><a href="http://www.skydragon.vip/All-publicvideo-list.html"> 公益视频  </a></li>
+			<li class="top-last" id="tuichu"><button class="login"> <a href="http://www.skydragon.vip/check2.php"> 退出登录  </a> </button></li>
+		  </ul>
+		</div>	
+		
+		<!--中间陪衬-->  
+	    <div id="center">
+		   <li class="center-first">搜索 </li>
+		       <!--搜索栏-->
+               <div id="searchbox">			        
+			         <input id="search"  class="search" placeholder="请输入关键字">                      
+					       <div id="searchbox-last" onclick="isGoto()">
+					         搜索						 
+                           </div>					   				
+               </div>   
+		</div>
+		<hr/> 
+  <!--内容主体-->	
+  <div id="zhongjian" >
+          <!--头像-->
+		 <div id="tu">
+         <img class="touxiang" src="./img/2.jpg" alt="登录头像">
+		 </div>
+		 <br>
+		    <!--资料-->
+		    <form id="form1" name="form1" action="xiugai.php" method="POST">			
+			  <p>姓名:<input name="xingmin" id="xingmin" class="xinxi"  v-model="info[0].xingmin" maxlength="10"><br>
+			  <p>年龄:<input name="age" id="age" class="xinxi" v-model="info[0].age"><br>
+			  <p>地址:<input name="address" id="address" class="xinxi" v-model="info[0].address"><br>
+			  <p>学校:<input name="school" id="school" class="xinxi" v-model="info[0].school"><br>
+			  <p>邮箱:<input name="email" id="email" class="xinxi" v-model="info[0].email"><br>
+			  <p>个性签名:<p>
+			  <textarea v-model="info[0].qianming" name="qianming" id="qianming" maxlength="300" style="resize:none;width:100%;height:140px;" > </textarea>			
+            </form>        
+  </div>
+  
+           
+ 
+			 
+  <div id="xiugai">
+  <button type="button" class="xiugai" id="xgxx" form="form1">修改信息</button> <!--html5 新属性form="form1" formmethod="POST" formaction="xiugai.php"-->
+  
+  <button type="button" id="test" class="last">发布文章</button>
+  <script>
+  
+  </script>
+  </div>
+
+
+
+
+ <!--底端信息栏-->
+	  <div id="bottom">
+	  <a href="http://beian.miit.gov.cn/" target="_blank"><p>渝ICP备19006881号</p></a> 
+	  <p>作者:   陈天龙</p>
+	  <p>学校:西南大学</p>
+	  <p>作者联系方式：a809653361@icloud.com</p>
+	  <p>举报虚假信息:<a href="http://www.skydragon.vip/report.php">举报链接</a></p>  
+	  </div>
+	  
+</body>
+</html>
+   <!--vue代码-->
+   <script>
+   $("#test").click(function(){  
+     window.location.href="#";
+   });
+   $("#xgxx").click(function(){
+     var xingmin=$.trim($("#xingmin").val());
+	 var age=$.trim($("#age").val());
+	 var address=$.trim($("#address").val());
+	 var school=$.trim($("#school").val());
+	 var email=$.trim($("#email").val());
+	 var qianming=$.trim($("#qianming").val());
+	if(xingmin==""){
+	  alert("姓名不能为空！");
+	  $("#xingmin").focus();
+	  return false;
+	}
+	if(address==""){
+	  alert("地址不能为空！");
+	  $("#address").focus();
+	  return false;
+	}  
+   $("#form1").submit();  
+   });   
+    //axios get方法
+    new Vue({
+	el:'#top',
+	data:{
+	   isUse:true
+	 },
+	methods:{ 
+	 }
+	});
+	new Vue({
+      el: '#zhongjian',
+      data () {
+      return {
+         info: null
+       }
+     },
+    mounted () {
+    axios
+      .get('getinfo.php')
+      .then(response => (this.info = response.data.userinfo))
+      .catch(function (error) { // 请求失败处理
+        console.log(error);
+      });
+      }
+    });
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

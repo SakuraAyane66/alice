@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head> 
+   <meta charset='utf-8'>
+   <title>举报界面</title>
+    <!--link要在head里面 连接外部文件-->
+    <link rel="stylesheet" type="text/css" href="report.css">
+	
+</head>
+<body>
+	<!--顶部导航栏-->  
+        <div id="top">	
+		  <ul class="shuiping">
+		    <li class="top-first"><a  href="http://www.skydragon.vip/Homepage.html">返回首页</a></li>
+			<li class="top-center"><a href="http://www.skydragon.vip/All-annoucement-list.html"> 全部公告 </a></li>
+		    <li class="top-center"><a href="http://www.skydragon.vip/All-goodthings-list.html"> 好人好事 </a></li>
+		    <li class="top-center"><a href="http://www.skydragon.vip/All-publicconnect-list.html"> 公益连接 </a></li>
+		    <li class="top-center"><a href="http://www.skydragon.vip/All-publicvideo-list.html"> 公益视频  </a></li>
+		  </ul>
+		</div>	
+	<!--举报内容部分-->  	
+    <div id="reason"> 	
+            <h1 style="text-align:center;">举报不法行为，人人有责</h1>
+    <form action="report-insert.php" method="post" class="form-report">
+        <label>
+            <span class="star">举报类型:</span>
+            <select name="select1" class="select1">
+                <option value="涉及诈骗">涉及诈骗</option>
+                <option value="涉及侵权">涉及侵权</option>
+                <option value="虚假内容">虚假内容</option>
+                <option value="垃圾信息">垃圾信息</option>
+                <option value="色情信息">色情信息</option>
+				<option value="其他原因">其他原因</option>
+            </select>
+        </label>
+		<br>
+        <label>
+            <span class="star">举报网址:</span>
+            <textarea id="url" name="url" placeholder="请在此填写举报具体网站"></textarea>
+        </label>
+		<br>
+        <label>
+            <span class="star">举报原因:</span>
+            <textarea id="describe" name="describe" placeholder="详细填写举报理由，有利于审核"></textarea>
+        </label>
+        <br>
+        <label>
+            <span class="star">请留下邮箱方便联系你:</span>
+            <textarea id="email" name="email" placeholder="请务必填写正确的邮箱地址"></textarea>
+        </label>
+		<br>
+        <!--
+        <label>
+            <span>备注：（验证码）</span>
+            <input type="text" id="verifiation code">
+        </label>
+        
+		-->
+		    <div id="fasong">
+			<input type="submit" class="button" value="发送">        		
+            </div>
+    </form>
+    </div>
+	
+	
+	
+	
+	
+	
+<!--页脚-->
+      <div id="bottom-footer"> 
+	  <a href="#" class="bottom">返回顶部</a>
+	  |
+	  <a href="#">关于我们</a>	  
+	  |
+	  <a href="#">投稿须知</a>	
+	  |
+	  <a href="#">网站声明</a>	
+	  |
+	  <a href="#">联系我们</a>	
+	  
+	  </div>
+      
+	  <!--底端信息栏-->
+	  <div id="bottom">
+	  <a href="http://beian.miit.gov.cn/" target="_blank"><p>渝ICP备19006881号</p></a> 
+	  <p>作者:   陈天龙</p>
+	  <p>学校:西南大学</p>
+	  <p>作者联系方式：a809653361@icloud.com</p>	  
+	  </div>
+</body>
+</html>

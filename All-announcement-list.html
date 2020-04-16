@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>全部公告</title>
+    <!--link要在head里面 连接外部文件-->
+    <link rel="stylesheet" type="text/css" href="all-list.css"/>
+    <!--js部分<script src="jquery-3.2.1.js"></script>-->
+    <script src="load.js"></script>
+	<script src="vue.js"></script>
+	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+  </head>
+  <!--主体部分-->
+  <body>
+    <!--顶部导航栏-->
+    <div id="top">
+      <ul class="shuiping">
+        <li class="top-first">
+          <a id="home" href="http://www.skydragon.vip/Homepage.html"
+            >返回首页</a
+          >
+        </li>
+        <li class="top-center">
+          <a href="http://www.skydragon.vip/All-goodthings-list.html">
+            好人好事
+          </a>
+        </li>
+        <li class="top-center">
+          <a href="http://www.skydragon.vip/All-publicconnect-list.html">
+            公益连接
+          </a>
+        </li>
+        <li class="top-center">
+          <a href="http://www.skydragon.vip/All-publicvideo-list.html">
+            公益活动
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--中间陪衬-->
+    <div id="center">
+      <li class="center-first">全部公告内容</li>
+      <!--搜索栏-->
+      <div id="searchbox">
+        <input
+          type="text"
+          class="search"
+          id="search"
+          placeholder="请输入关键字"
+        />
+        <div id="searchbox-last" onclick="isGoto()">
+          搜索
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!--左边内容主体-->
+    <div id="center-left">
+      <ul>
+         <li v-for="item in message">{{item}}</li>
+      </ul>
+      <!--左边翻页部分-->
+      <hr />
+      <div id="center-left-bottom">
+        <input type="button" onclick="getPreviouspage()" value="上一页" />
+        <input
+          type="button"
+          onclick="getNextpage()"
+          class="last"
+          value="下一页"
+        />
+      </div>
+    </div>
+
+    <!--右边主体部分-->
+    <div id="center-right">
+      <!--右边上-->
+      <div id="center-right-top"></div>
+      <!--右边下-->
+      <div id="center-right-bottom"></div>
+    </div>
+    <!--页脚-->
+    <div id="bottom-footer">
+      <a href="#" class="bottom">返回顶部</a>
+      |
+      <a href="#">关于我们</a>
+      |
+      <a href="#">投稿须知</a>
+      |
+      <a href="#">网站声明</a>
+      |
+      <a href="#">联系我们</a>
+    </div>
+
+    <!--底端信息栏-->
+    <div id="bottom">
+      <a href="http://beian.miit.gov.cn/" target="_blank"
+        ><p>渝ICP备19006881号</p></a
+      >
+      <p>作者: 陈天龙</p>
+      <p>学校:西南大学</p>
+      <p>作者联系方式：a809653361@icloud.com</p>
+      <p>
+        举报虚假信息:<a href="http://www.skydragon.vip/report.php">举报链接</a>
+      </p>
+    </div>
+  </body>
+</html>
+<script>
+	 var vm=new Vue({
+		 el:"#center-left",
+		 data:{
+			 message:null
+		 },
+		 mounted(){
+         axios
+		 .get("http://www.skydragon.vip/announcement.php")
+		 .then(response => (this.message = response.data.announcemnt))
+		 .catch(function (error) { // 请求失败处理
+             console.log(error);
+             })
+		 },
+		 methods:{
+			getNext:function(){
+			},
+			getPreviouspage:function(){
+			}
+		 }
+	 })
+
+  
+</script>
