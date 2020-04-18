@@ -1,0 +1,218 @@
+
+/*注释*/
+           /* "#"是id选择器，点是class选择器,  target:_blank;在新界面打开一个网页*/
+
+
+
+
+     /*链接相关样式*/
+     a:link{ color:white;}  /*默认为白色*/
+     a:visited {color:white;}  /*已访问链接 */
+     a:hover {color:black;}  /* 鼠标移动到链接上 */
+     a:active {color:#0000FF;}  /* 鼠标点击时 */
+     a {
+     text-decoration:none;
+	 }	
+	 
+	 /*横向div*/
+	.div-inline { display:inline;} 
+	a {
+     text-decoration:none;
+	}	
+	p.buhuan{
+	  display:inline;		 
+	 }
+    /*顶部导航栏部分*/ #top {
+	 margin-top:0px;
+	 width:100%;
+	 height:40px;
+	 background-color:#00CCFF;/*水蓝色*/
+	}
+	/*ul 去掉前面的小黑点*/
+	 ul.shuiping
+      {
+		list-style-type:none;	
+	  }	 
+    li.quxiao {
+        list-style: none; 
+	}		
+    /*li格式部分*/	  
+	li.top-first{
+	    margin-top:8px;
+       float: left; 
+	   margin-left:80px;
+	}	
+    li.top-center{
+	  margin-top:8px;
+      float:left;
+	  margin-left:15px;
+	  color: white;
+      text-align: center;
+	  display: block;
+	}	
+    /*中间陪衬部分*/	
+	#center {
+	 margin-top:5px;
+	 width:100%;
+	 height:40px;
+	 background-color:#8E8E8E;
+	}
+	li.center-first {
+	   float: left; 
+	   margin-left:120px;
+	   font-size:25px;
+	   list-style-type:none;	
+	}
+	#searchbox{
+		float:right;
+		font-size: 14px;
+		width: 340px;
+        margin: 3px auto;	
+	}
+	#searchbox-last{
+		width:78px;
+        height:32px;
+        float:right;
+        background:black;
+        color:white;
+        text-align:center;
+        line-height: 32px;/*高度*/
+        cursor: pointer;/*移动显示为手*/	
+	}
+	/*input样式*/
+	input.search{
+		width: 260px;
+        border: 1px solid #e2e2e2;
+        height: 30px;
+        float: left;
+		/*
+        background-image: url(images/search.jpg);
+        background-repeat: no-repeat;图片不重复
+        background-size: 25px;
+        background-position:5px center;*/
+        padding:0 0 0 0;		
+	}
+	h2 {
+		text-align:center;
+		margin-top:0px;
+		color:red;
+	}
+	
+	/*中间内容*/
+	#center-topic{
+	  float:left;
+	  margin-top:10px;
+	  height:60px;
+	  width:100%;
+	  font-size:20px;
+	  background-color:#F5F5F5;
+	}
+	
+    /*中间内容*/
+	#center-content{
+	  float:left;
+	  margin-top:10px;
+	  margin-left:280px;
+	  height:580px;
+	  width:660px;
+	  background-color:#F5F5F5;
+	  border:2px solid;
+	  font-size:20px;
+	  text-indent:2em;/*文章空格*/
+	}	
+	
+	/*作者和时间*/
+	#center-content-bottom{
+	 /*background-color:blue;*/
+	 width:98%;
+	 margin-left:15px;
+	 height:50px;
+	}
+	.last{ 
+	 float:right;
+	 margin-top:1px;
+	 margin-right:0px;	
+	}
+	/*作者*/
+	#author {
+	 float:right;
+	 margin-top:10px;
+	 margin-right:5px;
+	 height:30px;
+	 width:30%;
+	 font-size:0.8em;
+	 text-align:left;
+	 /*background-color:red;*/
+	}
+	
+	/*时间*/	
+	#time{
+	 float:right;
+	 margin-top:10px;
+	 margin-right:0px;
+	 height:30px;
+	 width:30%;
+	 font-size:0.8em;
+	 text-align:left;
+	 /*background-color:red;*/	
+	}
+	
+	.neibu{
+	float:right;
+	margin-top:10px;
+	font-size:0.8em;
+	margin-right:0px;
+	text-align:right;
+	height:30px;
+	width:80px;	
+	/*background-color:green;*/
+	}
+	/*底端相关信息条目*/
+	#bottom-footer{
+	float:left;
+	margin-top:20px;
+	width:100%;
+	height:43px;
+	background-color:gray;	
+	text-align:center;
+	}
+	#bottom-footer a{
+	 font-size: 23px;
+	 padding-left:20px;
+	 padding-right:15px;
+	 margin-top:0px;	
+	}	
+	#bottom-footer a:hover {
+	color:#FF702D;
+    text-decoration-line: underline;/*修改为有下划线*/
+    text-decoration-style: solid;/*设置为默认*/
+    text-decoration-color: currentcolor;/*修改下划线颜色*/
+	}
+	
+	#bottom{
+	float:left;
+    margin-top:0px;
+    background-color:#FF6600;	
+	width:100%;
+	height:210px;
+	text-align:center;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
