@@ -88,7 +88,6 @@
         />
       </div>
     </div>
-
     <!--右边主体部分-->
     <div id="center-right">
       <!--右边上-->
@@ -192,7 +191,7 @@
           //显示余下部分
           for (i = 0; i < x % 18; i++) {
             //document.getElementById("gonggao"+i).href=data.publicvideo[18*page-18+i].hyperlink;
-            document.getElementById("gysp" + i).href =
+            document.getElementById("gonggao" + i).href =
               "Xianshi.html?db=publicvideo&id=" +
               data.publicvideo[18 * page - 18 + i].id;
             document.getElementById("contents" + i).innerHTML =
@@ -210,7 +209,7 @@
         $.get("publicvideo.php", function (data, status) {
           for (i = 0; i < 18; i++) {
             //document.getElementById("gonggao"+i).href=data.publicvideo[18*page-18+i].hyperlink;
-            document.getElementById("gysp" + i).href =
+            document.getElementById("gonggao" + i).href =
               "Xianshi.html?db=publicvideo&id=" +
               data.publicvideo[18 * page - 18 + i].id;
             document.getElementById("contents" + i).innerHTML =

@@ -13,7 +13,8 @@
   if(isset($_SESSION['user'])){
 	 //echo "进来了把？<br>";
 	 try{		 
-	 $mysqli->query("update userinfo set xingmin='$xingmin',age='$age',address='$address',school='$school',email='$email',qianming='$qianming' where username='$user'");
+   $mysqli->query("update userinfo set xingmin='$xingmin',age='$age',address='$address',school='$school',email='$email',qianming='$qianming' where username='$user'");
+   echo "<script>location='Person.html';</script>";
      //$mysqli->query("update userinfo set age='$age' where username={$user}");	   
 	 //echo $user;
 	// echo "没到这儿";
