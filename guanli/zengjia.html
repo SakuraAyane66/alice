@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>发布活动内容</title>
+    <!--link要在head里面 连接外部文件-->
+    <link rel="stylesheet" type="text/css" href="zengjia.css" />
+    <!--js部分-->
+    <script src="jquery-3.2.1.js"></script>
+    <script src="chongfu.js"></script>
+  </head>
+  <!--主体部分-->
+  <body>
+    <!--顶部导航栏-->
+    <div id="top">
+      <ul class="shuiping">
+        <li class="top-first">
+          <a id="home" href="http://www.skydragon.vip/guanliyuan.html"
+            >返回首页</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!--中间陪衬-->
+    <div id="center">
+      <li class="center-first">管理员发布内容界面</li>
+    </div>
+    <hr />
+    <!--content界面-->
+    <form name="form1" id="form1" action="zengjia.php" method="POST">
+      <div id="center-content">
+        <label>
+          <span>选择发布类型:</span>
+          <select name="select1" id="select1">
+            <option value="-1">announcement</option>
+            <option value="-2">好人好事</option>
+            <option value="-3">公益连接</option>
+            <option value="-4">全部活动</option>
+            <option value="-5">头条内容</option>
+            <option value="-6">增加用户</option>
+          </select>
+        </label>
+        <p>
+          topic: <input type="text" class="topic" id="topic" name="topic" />
+        </p>
+        <hr />
+        <h3>content:</h3>
+        <textarea
+          maxlength="3000"
+          style="resize: none; width: 98%; height: 400px;"
+          name="content"
+          id="content"
+        >
+        </textarea>
+        <hr />
+        超链接:<input type="text" class="topic" id="hylink" name="hylink" />
+        <br />
+        用户：<input type="text" id="username" name="username" /> 密码：<input
+          type="text"
+          id="password"
+          name="password"
+        />
+      </div>
+    </form>
+    <div id="xiugai">
+      <button type="button" class="xiugai" id="qdfb" form="form1">
+        确定发布
+      </button>
+      <!--html5 新属  性form="form1" formmethod="POST" formaction="xiugai.php"-->
+      <button type="button" id="clear" class="last">清空内容</button>
+    </div>
+
+    <!--页脚-->
+    <div id="bottom-footer">
+      <a href="#" class="bottom">返回顶部</a>
+      |
+      <a href="#">关于我们</a>
+      |
+      <a href="#">投稿须知</a>
+      |
+      <a href="#">网站声明</a>
+      |
+      <a href="#">联系我们</a>
+    </div>
+
+    <!--底端信息栏-->
+    <div id="bottom">
+      <a href="http://beian.miit.gov.cn/" target="_blank"
+        ><p>渝ICP备19006881号</p></a
+      >
+      <p>作者: 陈天龙</p>
+      <p>学校:西南大学</p>
+      <p>作者联系方式：a809653361@icloud.com</p>
+      <p>举报虚假信息:<a href="#">举报链接</a></p>
+    </div>
+  </body>
+</html>
+<script>
+  $("#qdfb").click(function () {
+    var a=$("#select1").val();
+    var topic = $.trim($("#topic").val());
+    var content = $.trim($("#content").val());
+    var hylink=$.trim($("#hylink").val());
+    var username=$.trim($("#username").val());
+    var password=$.trim($("#password").val());
+    //alert("js插入进来了");
+    //alert(a);
+    if(a==-3){
+        if (topic == "") {
+      alert("topic名字不能为空！");
+      $("#topic").focus();
+      return false;
+      } 
+        if(hylink==""){
+        $("#hylink").focus();
+        alert("超链接不能为空!");
+        return false;
+        }
+    }
+
+    if(a==-1 ||a==-2||a==-4||a==-5){
+     if (topic == "") {
+      alert("主题不能为空！");
+      $("#topic").focus();
+      return false;
+    } 
+    if (content == "") {
+      alert("内容不能为空！");
+      $("#content").focus();
+      return false;
+       }
+    }
+    if(a==-6) {
+        if(username==""|| password==""){
+            $("#username").focus();
+            alert("用户或者密码不能为空！");
+            return false;
+        }
+    }
+    $("#form1").submit();
+    alert("发布成功！");
+    //window.location.href = "guanliyuan.html";
+  });
+  $("#clear").click(function () {
+    $("#hylink").val("");
+    $("#username").val("");
+    $("#password").val("");
+    $("#topic").val("");
+    $("#content").val("");
+  });
+</script>

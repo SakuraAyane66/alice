@@ -133,6 +133,56 @@
 					}
 				);
 			}
+	//用户获取,db为-5
+	function getToutiao(){
+				$.get("toutiao.php",
+					function(data, status){		
+                        x=getJsonLength(data.toutiao);	//x为全局变量，第一次onload获取到的json数据属性个数	
+                        y=6;	
+						page=1;
+						document.getElementById("databaseid").value=-5;
+                         //初始化all-list界面 
+                       	  for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML= "";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }			 
+					      for(i=0;i<18;i++){
+							  document.getElementById("dataid"+i).innerHTML=data.toutiao[i].id;
+							  document.getElementById("topic"+i).innerHTML=data.toutiao[i].topic;document.getElementById("author"+i).value=data.toutiao[i].author;
+							  document.getElementById("databaseid"+i).value=data.toutiao[i].id;
+						     }
+					}
+				);
+			}	
+	//用户获取,db为-6
+	function getUserinfo(){
+				$.get("userinfo.php",
+					function(data, status){		
+                        x=getJsonLength(data.userinfo);	//x为全局变量，第一次onload获取到的json数据属性个数	
+                        y=6;	
+						page=1;
+						document.getElementById("databaseid").value=-6;
+                         //初始化all-list界面 
+                       	  for(i=0;i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML= "";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }			 
+					      for(i=0;i<18;i++){
+							  document.getElementById("dataid"+i).innerHTML=data.userinfo[i].id;
+							  document.getElementById("author"+i).innerHTML=data.userinfo[i].username;	
+							  document.getElementById("databaseid"+i).value=data.userinfo[i].id;
+						     }
+					}
+				);
+			}
 	//上一页数据
 	function getPreviouspage(){
 	             if(page==1){
@@ -200,6 +250,31 @@
 						   }
 					     }
 				       );
+					}else if(y==5){
+					 $.get("toutiao.php",
+					    function(data, status){	
+                         page=page-1;//解析到数据之后page先-1	
+						document.getElementById("databaseid").value=-5;
+					    for(i=0;i<18;i++){						    
+	                        document.getElementById("topic"+i).innerHTML = data.toutiao[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.toutiao[18*page-18+i].id;
+							document.getElementById("author"+i).innerHTML=data.toutiao[18*page-18+i].author;
+							document.getElementById("databaseid"+i).value=data.toutiao[18*page-18+i].id;
+						   }
+					     }
+				       );
+					}else if(y==6){
+					 $.get("userinfo.php",
+					    function(data, status){	
+                           page=page-1;//解析到数据之后page先-1	
+						document.getElementById("databaseid").value=-6; 
+					    for(i=0;i<18;i++){						    						
+						    document.getElementById("dataid"+i).innerHTML=data.userinfo[18*page-18+i].id;
+							document.getElementById("author"+i).innerHTML=data.userinfo[18*page-18+i].username;		
+							document.getElementById("databaseid"+i).value=data.userinfo[18*page-18+i].id;				
+						   }
+					     }
+				       );						
 					}						   
 				}
 			}
@@ -306,7 +381,49 @@
 						     }						
 					    }
 				      );
-					}										  
+					}else if(y==5){
+					 $.get("toutiao.php",
+					    function(data, status){
+						    document.getElementById("databaseid").value=-5;
+					        //显示余下部分
+					        for(i=0;i<(x%18);i++){
+	                            document.getElementById("topic"+i).innerHTML = data.toutiao[18*page-18+i].topic;
+						        document.getElementById("dataid"+i).innerHTML=data.toutiao[18*page-18+i].id;						 
+							    document.getElementById("author"+i).innerHTML=data.toutiao[18*page-18+i].author;
+								document.getElementById("databaseid"+i).value=data.toutiao[18*page-18+i].id;
+								}
+                      		for(i=(x%18);i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML="";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }						
+					    }
+				      );
+					}
+					else if(y==6){
+						$.get("userinfo.php",
+					    function(data, status){
+						    document.getElementById("databaseid").value=-6;
+					        //显示余下部分
+					        for(i=0;i<(x%18);i++){				            
+						        document.getElementById("dataid"+i).innerHTML=data.userinfo[18*page-18+i].id;						
+							    document.getElementById("author"+i).innerHTML=data.userinfo[18*page-18+i].username;	
+								document.getElementById("databaseid"+i).value=data.userinfo[18*page-18+i].id;					
+								}
+                      		for(i=(x%18);i<18;i++){
+						      document.getElementById("hyperlink"+i).innerHTML="";
+	                          document.getElementById("topic"+i).innerHTML="";
+							  document.getElementById("dataid"+i).innerHTML="";
+							  document.getElementById("time"+i).innerHTML="";
+							  document.getElementById("author"+i).innerHTML="";	
+							  document.getElementById("databaseid"+i).value="";
+						     }						
+					    }
+				      );
+					}								  
                       return false;					  
 					}else{
                       if(y==1){
@@ -365,31 +482,41 @@
 						   }
 					     }
 				       );
-				      }		  
+				      }else if(y==5){
+					 $.get("toutiao.php",
+					    function(data, status){	                        
+						document.getElementById("databaseid").value=-5;
+					    for(i=0;i<18;i++){						    
+	                        document.getElementById("topic"+i).innerHTML = data.toutiao[18*page-18+i].topic;
+						    document.getElementById("dataid"+i).innerHTML=data.toutiao[18*page-18+i].id;
+							document.getElementById("author"+i).innerHTML=data.toutiao[18*page-18+i].author;
+							document.getElementById("databaseid"+i).value=data.toutiao[18*page-18+i].id;
+						   }
+					     }
+				       );
+					}else if(y==6){
+						$.get("userinfo.php",
+					    function(data, status){	
+						document.getElementById("databaseid").value=-6;
+					    for(i=0;i<18;i++){						    							
+						    document.getElementById("dataid"+i).innerHTML=data.userinfo[18*page-18+i].id;							
+							document.getElementById("author"+i).innerHTML=data.userinfo[18*page-18+i].username;	
+							document.getElementById("databaseid"+i).value=data.userinfo[18*page-18+i].id;					
+						   }
+					     }
+				       ); 
+					  }		  
 				    } 
 				 }
 			 }
-			 
-			 
-	/*获取checkboxID
-	function getCheckid(){
-	 var obj = document.getElementsByName("selectIds");
-     var checkVal= [];//获取选中的id
-     for(var k in obj){
-        if(obj[k].checked){
-          checkVal.push(obj[k].value);
-　　     }
-       }  
-     return checkVal;	   
-     }
-	*/
-	
-	
-	//跳转到当前界面,需要些innerHTML里面的内容
-	/*function gotoSearch(){
-	var a=document.getElementById("search").value;
-	window.location.innerHTML="Search.html?keywords="+a;
-	}*/
+	//跳转到增加界面
+	function gotoZengjia(){    
+		window.location.href='zengjia.html';
+	}
+	//跳转到指定修改界面
+	function gotoXiugai(){
+		
+	}
 	</script>
 </head>
 <!--主体部分-->
@@ -400,7 +527,10 @@
 		    <li class="top-center" onclick="getAnnouncement()"> 全部公告内容  </li>
 		    <li class="top-center" onclick="getGoodthings()">全部好人好事内容  </li>
 			<li class="top-center" onclick="getPublicconnect()">全部链接内容  </li>
-		    <li class="top-center" onclick="getPublicvideo()">全部视频内容 </li>
+			<li class="top-center" onclick="getPublicvideo()">全部活动内容 </li>
+			<li class="top-center" onclick="getToutiao()">全部头条内容 </li>
+			<li class="top-center" onclick="getUserinfo()">全部用户 </li>
+			<li class="top-center" onclick="getReport()">举报 </li>
 		  </ul>
 		</div>	
 	<!--中间陪衬-->  
@@ -408,8 +538,7 @@
 		   <li class="center-first">管理界面内容 </li>     
 		</div>
 		 <hr/> 	
-		
-		
+				
 		<form method="post" action="shanchu.php">
 		<table border="1" >
 		    <tr>
@@ -567,8 +696,8 @@
          </table>
 		 
 		 <input type="submit" value="删除">
-		 <input type="button" onclick="" value="修改">
-		 <input type="button" onclick="" value="增加">
+		 <input type="button" onclick="gotoXiugai()" value="修改">
+		 <input type="button" onclick="gotoZengjia()" value="增加">
 		</form>
 		
 		

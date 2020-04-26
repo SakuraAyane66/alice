@@ -17,7 +17,7 @@
      for($i=1;$i<$num;$i++){
 	  $mysqli->query("DELETE FROM goodthings WHERE id={$value[$i]}");
       }
-	  echo "删除go成功！<a href ='guanliyuan.html'>这儿</a>";
+	  echo "删除goodthings成功！<a href ='guanliyuan.html'>这儿</a>";
 	   
    }else if($value[0]==-3){	 
      for($i=1;$i<$num;$i++){
@@ -30,7 +30,18 @@
 	  $mysqli->query("DELETE FROM publicvideo WHERE id={$value[$i]}");
       }
 	  echo "删除pubvi成功！<a href ='guanliyuan.html'>这儿</a>"; 
-   }
+   }else if($value[0]==-5){
+	 
+    for($i=1;$i<$num;$i++){
+   $mysqli->query("DELETE FROM toutiao WHERE id={$value[$i]}");
+     }
+   echo "删除头条成功！<a href ='guanliyuan.html'>这儿</a>"; 
+  }else if($value[0]==-6){
+    for($i=1;$i<$num;$i++){
+   $mysqli->query("DELETE FROM userinfo WHERE id={$value[$i]}");
+     }
+   echo "删除用户成功！<a href ='guanliyuan.html'>这儿</a>"; 
+  }
    else{
 	    echo "操作失败！<a href ='guanliyuan.html'>返回</a>"; 
    }

@@ -10,7 +10,7 @@ $data = array();
 {
 public $id;
 public $topic;
-public $content;
+//public $content;
 public $author;
 public $time1; /*避免之后的关键词time，用来time1*/
 public $hyperlink;
@@ -25,7 +25,7 @@ if($result){
 $publicconnect =new  Publicconnect(); 
 $publicconnect->id= $row["id"];
 $publicconnect->topic= $row["topic"];
-$publicconnect->content= $row["content"];
+//$publicconnect->content= $row["content"];
 $publicconnect->time1= $row["time"];
 $publicconnect->author = $row["author"];
 $publicconnect->hyperlink = $row["hyperlink"];
