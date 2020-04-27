@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+    <html class="no-js"> <!--<![endif]-->
+    <head>
+        <script src="js/jquery-3.2.1.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>test pages</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <body>
+
+        <input type="checkbox" name="checkbox[]" id="1" value="????">
+        sakura
+        <input type="checkbox" name="checkbox[]" id="2">
+        ayne
+        <input type="checkbox" name="checkbox[]" id="3">
+        onishi
+        <button onclick="gotoXiugai()">Alice</button>
+        
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+          
+    </body>
+</html>
+<script>
+    function gotoXiugai(){
+	var chk_value =[];//定义一个数组 
+    $("input[name='checkbox[]']:checked").each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数   
+	       // alert($(this).id());
+           chk_value.push($(this).val());//将选中的值添加到数组chk_value中 
+           //chk_value.push($(this).attr('id'));//将选中的值添加到数组chk_value中    
+            });
+    alert(chk_value.length);
+    if(chk_value.length>2){
+      alert("只能勾选一个具体的id!");
+      return false;
+    }
+	for(let i=0;i<chk_value.length;i++){
+       alert(chk_value[i]);
+	  }
+	}
+</script>

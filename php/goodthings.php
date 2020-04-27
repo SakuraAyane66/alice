@@ -4,7 +4,6 @@
     include("conn1.php"); 
 $json = '';
 $data = array();
-	
 	/*公告类*/
  class Goodthings
 {

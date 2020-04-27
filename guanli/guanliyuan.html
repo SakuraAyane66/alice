@@ -513,10 +513,7 @@
 	function gotoZengjia(){    
 		window.location.href='zengjia.html';
 	}
-	//跳转到指定修改界面
-	function gotoXiugai(){
-		
-	}
+	
 	</script>
 </head>
 <!--主体部分-->
@@ -711,3 +708,18 @@
 	
 
 </html>
+<script>
+	//跳转到指定修改界面
+	function gotoXiugai(){
+	var  a=[];//定义一个数组    
+    $("input[name='checkbox[]']:checked").each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数   
+            a.push($(this).val());//将选中的id值添加到数组chk_value中    
+            });
+	 if(a.length>2){
+		alert("只能勾选一个！");
+		return flase;		
+	 }
+	 window.location.href="glyxiugai.html?db="+a[0]+"&id="+a[1];
+	 //window.location.href="db?="+a[0]+"&&id?="+a[1];
+	}
+</script>
