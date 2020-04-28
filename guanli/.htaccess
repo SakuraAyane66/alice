@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Try to into this midir"
+AuthUserFile /home/www/htdocs/.htpasswd
+require valid-user
+
