@@ -8,6 +8,7 @@
 	<!--js部分--> 
 	<script src="jquery-3.2.1.js"></script>
 	<script src="chongfu.js"></script>
+	<script src="http://libs.baidu.com/jqueryui/1.8.24/jquery-ui.min.js"></script>
 	
 </head>
 <!--主体部分-->
@@ -104,48 +105,12 @@
 </body>
 </html>
 <script>
-	
-	/*判断href
-	function isLogin(){
-	var b=sessionStorage.getItem("USER");	
-	if(b!=null){
-	document.getElementById("home").href="http://www.skydragon.vip/Homepage.html?user="+b;
-	}else  {
-	document.getElementById("home").href="http://www.skydragon.vip/Homepage.html";
-	  }	
-	}*/
-	//判断input框是否为空
-	/*function isnull(val) {
-        var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
-        if (str == '' || str == undefined || str == null) {
-            //return true;
-            //console.log('空')
-			alert("输入框为空！");
-			window.location.reload();
-			return true;
-        } else {
-            //return false;
-            gotoSearch();
-        }
-    }
-	//判断是否跳转
-	/*function isGoto(){
-	var a=document.getElementById("search").value;
-	  isnull(a);	
-	}
-	//跳转到Search界面
-	function gotoSearch(){
-	var a=document.getElementById("search").value;
-	window.location.href="Search.html?keywords="+a;
-	}
-	//获取json属性个数的函数
-	function getJsonLength(jsonData){
-             var jsonLength = 0;
-             for(var item in jsonData)
-			        {
-                     jsonLength++;}          
-             return jsonLength;
-             }*/
+	$(function () {
+  var availableTags = mystorage.get("search");
+  $("#search").autocomplete({
+    source: availableTags,
+  });
+});
 	//公告数据获取
 	function getGoodthings(){
 	            //简单的判断是否登录

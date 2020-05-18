@@ -8,6 +8,7 @@
     <!--js部分-->
     <script src="jquery-3.2.1.js"></script>
     <script src="chongfu.js"></script>
+    <script src="http://libs.baidu.com/jqueryui/1.8.24/jquery-ui.min.js"></script>
   </head>
   <!--主体部分-->
   <body onload="getPublicvideo();">
@@ -125,6 +126,12 @@
 <script>
   var i;
   page = 1; //页码
+  $(function () {
+  var availableTags = mystorage.get("search");
+  $("#search").autocomplete({
+    source: availableTags,
+  });
+});
   //公告数据获取
   function getPublicvideo() {
     $.get("publicvideo.php", function (data, status) {

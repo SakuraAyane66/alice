@@ -123,29 +123,5 @@
        echo "查询失败";
      }
 }else { echo "数据库错误";}
-  /*$db1="announcement";
-  $db2="goodthings";
-  $db3="publicconnect";
-  $db4="publicvideo";
-  */
-	 /*$sql = "SELECT * FROM {$db} WHERE id={$getid}";
-	 $result = $mysqli->query($sql);
-	
-	 if($result){
-	     while ($row = mysqli_fetch_array($result,MYSQL_ASSOC)){
-       $xianshi =new  Xianshi(); 
-       $xianshi->id= $row["id"];
-       $xianshi->topic= $row["topic"];
-       $xianshi->content= $row["content"];
-       $xianshi->author = $row["author"];
-       $xianshi->hylink = $row["hyperlink"];
-       $xianshi->password = $row["password"];
-       $data[]=$xianshi;
-	  }
-	   $json = json_encode($data);//把数据转换为JSON数据. 
-       echo "{".'"xianshi"'.":".$json."}";  
-	 }else{
-		echo "查询失败";
- 	 }*/
 $mysqli->close();	 
 ?>

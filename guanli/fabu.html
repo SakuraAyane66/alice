@@ -114,7 +114,8 @@ if(content==""){
    }
 $("#form1").submit(); 
 alert("发布成功！");
-window.location.href = "Person.html"; 
+setTimeout(window.location.href = "Person.html",1000)
+/* window.location.href = "Person.html";  */
 });
 $("#clear").click(function(){
 	$("#topic").val("");

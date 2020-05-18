@@ -4,17 +4,17 @@ $topic=strim($_POST['topic']);
 $content=strim($_POST['content']);
 /*$topic=$_POST['topic'];
 $content=$_POST['content'];*/
-echo "这儿呢？";
+/* echo "这儿呢？";
 echo $topic;
-echo $content;
+echo $content; */
 
 session_start();
 $user=$_SESSION['user'];
-echo "user";
-echo $user;
+/* echo "user";
+echo $user; */
 if(isset($_SESSION['user'])){
  //插入数据库
- echo "进来了把？<br>";
+ /* echo "进来了把？<br>"; */
  $mysqli->query("insert into publicvideo(topic,content,author,time) values ('$topic','$content','$user',now())");
  echo "<script>alert('发布成功!');location='Person.html';</script>";
 }else{

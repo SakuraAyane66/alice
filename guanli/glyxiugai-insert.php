@@ -2,11 +2,11 @@
    include("conn1.php");
    $select1 = $_POST['databaseid'];
    $id=$_POST['dataid'];
-   echo "那么就是这里了？<br/>";
+   /* echo "那么就是这里了？<br/>";
    echo $select1;
    echo "这儿都没有？<br/>";
    echo $id;
-   echo "不是吧";
+   echo "不是吧"; */
    if($select1==-1)
    {       
       $topic=$_POST['topic'];

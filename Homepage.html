@@ -376,6 +376,7 @@
 				);
 			}	
 	//头条内容数据获取
+	/*
 	function getToutiao(){
 	            $.get("toutiao.php",
 					function(data, status){			
@@ -384,7 +385,7 @@
 						document.getElementById("toutiaoneirong").innerHTML = data.toutiao[0].topic;					
 					}
 				);
-	}
+	}*/
 	//判断密码输入是否相同
 	function isValidate(){
 	     var psw1=document.getElementById('psw01').value;
@@ -406,7 +407,7 @@
 	//加载界面
 	function onLoad(){	       		
 	    isLogin();
-		getToutiao();
+		//getToutiao();
 	    getAnnouncement();
 		getPublicvideo();
 		getPublicconnect();

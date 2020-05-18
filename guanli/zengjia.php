@@ -7,9 +7,9 @@
    {       
       $topic=$_POST['topic'];
       $content=$_POST['content'];
-      echo "进来了<br/>";
+      /* echo "进来了<br/>";
       echo $topic;
-      echo $content;
+      echo $content; */
 	  $mysqli->query("insert into announcement(topic,content,author,time) values ('$topic','$content','管理员',now())");     
 	  echo "增加an成功！<a href ='guanliyuan.html'>这儿</a>";
    }else if($select1==-2){

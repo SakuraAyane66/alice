@@ -5,7 +5,7 @@
    include("conn1.php");
    $value = $_POST['checkbox'];    
    $num = count($value);//count()为数组统计函数 
-   echo '你选择了:'.implode(',',$value); 
+   /* echo '你选择了:'.implode(',',$value);  */
    //数组value从第二位开始才是id，第一位0为判断数据库
    if($value[0]==-1)
    {    
