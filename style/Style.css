@@ -433,8 +433,10 @@ span.psw {
     color: red;
     cursor: pointer;
 }
-
-
+/*live 2d*/
+#live2dcanvas {
+    border: 0 !important;
+}
 
 	
 	
