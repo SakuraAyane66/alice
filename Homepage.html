@@ -4,7 +4,7 @@
    <meta charset='utf-8'>
    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />-->
    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />-->
-   <title>首页</title>
+<title>首页</title>
     <!--link要在head里面 连接外部文件,这部分是原始文件
 	 <link rel="stylesheet" type="text/css" href="Style.css">
    -->
@@ -13,9 +13,14 @@
 	<link id="css" rel="stylesheet" type="text/css" href="" >
 	<script src="jquery-3.2.1.js"></script>
 	<script src="load.js"></script>
-	<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.0.min.js"></script>
-<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js"></script>
-<script type="text/javascript">
+	<link rel="stylesheet" type="text/css" href="assets/waifu.css"/>
+	<style type="text/css">
+	body {
+	margin-top: 0px;
+}
+    </style>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script type="text/javascript">
     L2Dwidget.init({"display": {
         "superSample": 2,
         "width": 200,
@@ -25,11 +30,11 @@
         "vOffset": 0
           }
      });
-</script>
+</script> -->
 </head>
        		
         <!--网址主体部分-->
-<body onload="onLoad();"> <!--onload="getAnnouncement();"-->
+<body topmargin="0px" onload="onLoad();"> <!--onload="getAnnouncement();"-->
         
        <!--顶部导航栏-->
 	    <nav>
@@ -74,9 +79,9 @@
 		   <h2> 公告 </h2>   
 		   <hr/>
 		    <!--表格-->
-		    <ul >
+		    <ul class="guizheng">
 		     <a id="gonggao0" target="_blank"><li id="contents0">1 </li> </a>
-		     <a id="gonggao1" target="_blank"><li id="contents1"> askdjalkdjald</li></a>
+		     <a id="gonggao1" target="_blank"><li id="contents1"> 2</li></a>
 		     <a id="gonggao2" target="_blank"><li id="contents2"> 3 </li></a>
 		     <a id="gonggao3" target="_blank"><li id="contents3"> 4 </li></a>
 		     <a id="gonggao4" target="_blank"><li id="contents4"> 5 </li></a>
@@ -93,7 +98,7 @@
 		   <h2> 好人好事</h2>
 		   <hr/>
 		       <!--表格-->	
-			   <ul>
+			   <ul class="guizheng">
 			      <a id="hrhs0" target="_blank"><li id="haoren0">1</li></a>
 			      <a id="hrhs1" target="_blank"><li id="haoren1">2</li></a>
 			      <a id="hrhs2" target="_blank"><li id="haoren2">3</li></a>
@@ -110,7 +115,7 @@
 		<!--网页中间主体部分-->
         <div id="center-center" class="div-inline">
 		     <div id="center-center-top">
-			 <!--这是网上的粘贴过来的-->
+			 <!--图片轮换-->
           <div class="slideshow-container">
               <div class="mySlides fade">
               <div class="numbertext">1 / 3</div>
@@ -141,14 +146,13 @@
               <span class="dot" onclick="currentSlide(3)"></span> 
               </div>
               <script src="huadong.js"> </script>  <!--如果放在前面会因为不自动加载第一个，所以放在这儿-->
-            <!--网上-->
+            <!--轮换-->
 			 </div>
 		  <div id="center-center-bottom">
 			  <ul>
 			     <li style="line-height:2">这只是测试数据1</li>
 				 <li style="line-height:2">这只是测试数据2</li>
 			     <li style="line-height:2">这只是测试数据3</li>
-			     <li style="line-height:2">这只是测试数据4</li>
 			  <ul>
 			 
 			 </div>
@@ -162,7 +166,7 @@
 		        <h2> 公益链接</h2>
 		        <hr/>
 		        <!--表格-->	
-			    <ul>
+			    <ul class="guizheng">
 			         <a id="gylj0" target="_blank"><li id="lianjie0">1</li></a>
 			         <a id="gylj1" target="_blank"><li id="lianjie1">2</li></a>
 			         <a id="gylj2" target="_blank"><li id="lianjie2">3</li></a>
@@ -182,7 +186,7 @@
 		        <h2> 公益活动</h2>
 		        <hr/>
 		        <!--表格-->	
-			    <ul class="shuiping">
+			    <ul class="guizheng">
 			         <a id="gysp0"  target="_blank"><li id="shipin0">1</li></a>
 			         <a id="gysp1"  target="_blank"><li id="shipin1">1</li></a>
 			         <a id="gysp2"  target="_blank"><li id="shipin2">1</li></a>
@@ -197,6 +201,7 @@
       </div>
      
 	  <!--页脚-->
+	  <footer>
       <div id="bottom-footer"> 
 	  <a href="#" class="bottom">返回顶部</a>
 	  |
@@ -207,8 +212,9 @@
 	  <a href="#">网站声明</a>	
 	  |
 	  <a href="#">联系我们</a>	
-	  
 	  </div>
+	  </footer>
+	  
       
 	  <!--底端信息栏-->
 	  <div id="bottom">
@@ -273,8 +279,25 @@
   </form>
 </div>
    
-   
+<div class="waifu">
+	<div class="waifu-tips"></div>
+	<canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+	<div class="waifu-tool">
+		<span class="fui-home"></span>
+		<!-- <span class="fui-chat"></span> -->
+		<span class="fui-eye"></span>
+		<span class="fui-user"></span>
+		<!-- <span class="fui-photo"></span> -->
+		<span class="fui-info-circle"></span>
+		<span class="fui-cross"></span>
+	</div>
+</div>
+	
+<script src="assets/waifu-tips.js"></script>
+<script src="assets/live2d.js"></script>
+<script type="text/javascript">initModel("assets/")</script>
 </body>
+
 </html>
 <script>
 	var i;
@@ -424,16 +447,5 @@
 		getPublicvideo();
 		getPublicconnect();
 		getGoodthings();
-	  }
-	
-	//清除所有cookie
-	/*function clearAllCookie() {
-      var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
-			if(keys) {
-				for(var i = keys.length; i--;)
-				document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
-				}
-	}*/
-    
-	
+	  }	
 	</script>

@@ -71,22 +71,6 @@ var mystorage = (function mystorage() {
     clear: clear,
   };
 })();
-
-/* var xmlhttp;
-                               if (window.XMLHttpRequest){
-                                   // 主流浏览器
-                                    xmlhttp=new XMLHttpRequest();
-                                  }
-                               else{
-                                  // IE6, IE5 浏览器执行代码
-                                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                                  }
-								  
-								  
-                               xmlhttp.open("GET","/try/ajax/demo_get.php",true);
-                               xmlhttp.send();
- */
-
 /*获取json属性个数的函数*/
 function getJsonLength(jsonData) {
   var jsonLength = 0;
@@ -153,4 +137,13 @@ function get_cookie(cookieName) {
     }
   }
   return null;
+}
+//判断是否是数字
+function isNumber(value) {         //验证是否为数字
+     var patrn = /^(-)?\d+(\.\d+)?$/;
+  if (patrn.exec(value) == null || value == "") {
+      return false
+   } else {
+      return true
+  }
 }

@@ -86,7 +86,7 @@
         background-position:5px center;*/
         padding:0 0 0 0;		
 	}
-     
+    
 	 /*中间个人资料部分*/
 
 	#zhongjian{
@@ -99,7 +99,7 @@
 	}
 	#tu{		
 	text-align:center;	
-	background-color:blue;
+	/* background-color:blue; */
 	}
 	#hezi{
 	float:left;
@@ -115,10 +115,25 @@
     /*width: 20%;
 	background-color:red;*/
     border-radius:50%;/*圆角边框*/
-    }
+	}
+	.yinying{
+		text-shadow: 5px 5px 5px #8E8E8E;
+		font-size: 30px;
+	 } 
+	 input.xinxi1{
+
+		margin-top:15px;
+		line-height: 20px;
+		width:10%; 
+		border-radius:10px; /*设置输入框的圆角的大小*/
+		border:1px solid #c8cccf;/*设置输入框边框的粗细和颜色*/	
+		outline:0; /*将输入框点击的时候出现的边框去掉*/
+		}
     input.xinxi{
 	float:right;
 	margin-right:70%;
+	margin-top:15px;
+	line-height: 20px;
 	width:20%; 
 	border-radius:10px; /*设置输入框的圆角的大小*/
     border:1px solid #c8cccf;/*设置输入框边框的粗细和颜色*/	
@@ -133,7 +148,6 @@
     width:60%;
     height:50px;			
 	}
-	
 	button.xiugai{
 	float:left;
 	width:10%;
@@ -270,4 +284,9 @@ span.psw {
 .close:hover, .close:focus {
     color: red;
     cursor: pointer;
+}
+*{padding:0px;margin: 0px;}
+body{
+	background-image: url(bg1.JPG);
+	background-attachment:fixed; background-repeat:no-repeat; background-size:100% 100%;
 }

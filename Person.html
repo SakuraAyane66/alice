@@ -14,7 +14,7 @@
 <body style="background-color:#f4f5f7;">
   <div id="top">	
           <!--使用了vue判断是否使用-->
-		  <ul v-bind:class="{shuiping:isUse}">
+		  <ul class="shuiping">
 		    <li class="top-first"><a id="home" href="http://www.skydragon.vip/Homepage.html">返回首页</a></li>
 			<li class="top-center"><a href="http://www.skydragon.vip/All-announcement-list.html"> 全部公告 </a></li>
 		    <li class="top-center"><a href="http://www.skydragon.vip/All-goodthings-list.html"> 好人好事 </a></li>
@@ -43,21 +43,22 @@
          <img class="touxiang" src="./img/login.jpg" alt="登录头像">
 		 </div>
 		 <br>
+
 		    <!--资料-->
-		    <form id="form1" name="form1" action="xiugai.php" method="POST">			
-			  <p>姓名:<input name="xingmin" id="xingmin" class="xinxi"  v-model="info[0].xingmin" maxlength="10"><br>
-			  <p>年龄:<input name="age" id="age" class="xinxi" v-model="info[0].age"><br>
-			  <p>地址:<input name="address" id="address" class="xinxi" v-model="info[0].address"><br>
-			  <p>学校:<input name="school" id="school" class="xinxi" v-model="info[0].school"><br>
-			  <p>邮箱:<input name="email" id="email" class="xinxi" v-model="info[0].email"><br>
-			  <p>个性签名:<p>
-			  <textarea v-model="info[0].qianming" name="qianming" id="qianming" maxlength="300" style="resize:none;width:100%;height:140px;" > </textarea>			
+		    <form class="yinying" id="form1" name="form1" action="xiugai.php" method="POST">			
+			 姓名:<input name="xingmin" id="xingmin" class="xinxi1"  v-model="info[0].xingmin" maxlength="10">
+			 年龄:<input name="age" id="age" class="xinxi1" v-model="info[0].age" >
+			  <p>地址:<input name="address" id="address" class="xinxi" v-model="info[0].address"></p>
+			  <p>学校:<input name="school" id="school" class="xinxi" v-model="info[0].school"></p>
+			  <p>邮箱:<input name="email" id="email" class="xinxi" v-model="info[0].email"></p>
+			  <p>个性签名:</p><p></p>
+			  <textarea v-model="info[0].qianming" name="qianming" id="qianming" maxlength="300" style="resize:none;width:100%;height:140px;" > </textarea>	 	
             </form>        
   </div>
   
            
  
-			 
+		
   <div id="xiugai">
   <button type="button" class="xiugai" id="xgxx" form="form1">修改信息</button> <!--html5 新属性form="form1" formmethod="POST" formaction="xiugai.php"-->
   
@@ -67,7 +68,20 @@
   </script>
   </div>
 
-
+ <!--页脚-->
+ <footer>
+	<div id="bottom-footer"> 
+	<a href="#" class="bottom">返回顶部</a>
+	|
+	<a href="#">关于我们</a>	  
+	|
+	<a href="#">投稿须知</a>	
+	|
+	<a href="#">网站声明</a>	
+	|
+	<a href="#">联系我们</a>	
+	</div>
+	</footer>
 
 
  <!--底端信息栏-->
@@ -83,9 +97,12 @@
 </html>
    <!--vue代码-->
    <script>
+	   
    $("#test").click(function(){  
      window.location.href="#";
    });
+
+  
    $("#xgxx").click(function(){
      var xingmin=$.trim($("#xingmin").val());
 	 var age=$.trim($("#age").val());
@@ -103,6 +120,12 @@
 	  $("#address").focus();
 	  return false;
 	}  
+	if(age!=''&&!isNumber(age)){
+	  alert('不是有效的数字');
+	  $("#age").focus();
+	  return false
+   }
+	
    $("#form1").submit();  
    alert("修改成功！");
    });  
@@ -110,15 +133,15 @@
 	window.location.href = "fabu.html";
    }); 
     //axios get方法
-    new Vue({
+  /* new Vue({
 	el:'#top',
 	data:{
 	   isUse:true
 	 },
 	methods:{ 
 	 }
-	});
-	new Vue({
+	});  */
+	 new Vue({
       el: '#zhongjian',
       data () {
       return {
@@ -133,7 +156,7 @@
         console.log(error);
       });
       }
-    });
+    });  
 	</script>
 	
 	
