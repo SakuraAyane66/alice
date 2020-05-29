@@ -10,27 +10,12 @@
    -->
 
 	<!--js部分-->
-	<link id="css" rel="stylesheet" type="text/css" href="" >
+	<link rel="stylesheet" type="text/css" href="Style.css" >
+	<link rel="shortcut icon" href="#"/>
 	<script src="jquery-3.2.1.js"></script>
 	<script src="load.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets/waifu.css"/>
-	<style type="text/css">
-	body {
-	margin-top: 0px;
-}
-    </style>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<!-- <script type="text/javascript">
-    L2Dwidget.init({"display": {
-        "superSample": 2,
-        "width": 200,
-        "height": 400,
-             "position": "right",
-                 "hOffset": 0,
-        "vOffset": 0
-          }
-     });
-</script> -->
 </head>
        		
         <!--网址主体部分-->
@@ -49,8 +34,7 @@
 		<li class="top-last" id="tuichu"><button class="login"> <a href="http://www.skydragon.vip/check2.php"> 退出登录  </a> </button></li>
 		<li class="top-last" id="geren"><button class="login"> <a href="http://www.skydragon.vip/Person.html"> 个人中心  </a> </button></li>
 		<li class="top-last" id="zhuce"><button class="login" onclick="document.getElementById('id02').style.display='block'">  注册   </button></li>
-		<li class="top-last" id="denglu"><button class="login" onclick="document.getElementById('id01').style.display='block'">  登录   </button></li>
-		
+		<li class="top-last" id="denglu"><button class="login" onclick="document.getElementById('id01').style.display='block'">  登录   </button></li>	
 		</ul>
 		</div>
 		</nav>
@@ -61,7 +45,7 @@
 		
         <div id="center-top">	
         <h1 style="text-align:center;"> 头条内容  </h1>
-		     <!--<input type="button" value="获取cookie" onclick="alert(get_cookie('username'));"/>-->
+		
 		<a id="toutiao">
 		<h1 style="text-align:center;" id="toutiaoneirong">习近平主持会议决战疫情，丝毫不能放松！ </h1>
 
@@ -145,7 +129,7 @@
               <span class="dot" onclick="currentSlide(2)"></span> 
               <span class="dot" onclick="currentSlide(3)"></span> 
               </div>
-              <script src="huadong.js"> </script>  <!--如果放在前面会因为不自动加载第一个，所以放在这儿-->
+             
             <!--轮换-->
 			 </div>
 		  <div id="center-center-bottom">
@@ -297,27 +281,10 @@
 <script src="assets/live2d.js"></script>
 <script type="text/javascript">initModel("assets/")</script>
 </body>
-
+<script src="huadong.js"> </script> 
 </html>
 <script>
 	var i;
-    //js更改样式,推荐使用媒体查询器。
-	$(function(){
-	//判断屏幕宽度
-	var winWide = window.screen.width;  //获取当前屏幕分辨率
-	//alert("winWide"+winWide);
-	var wideScreen = false;
-	if(winWide <= 1024){  //1024及以下分辨率
-	//这里写要加载的代码
-	//alert("小于");
-	$("#css").attr("href", "mobile_style.css");
-	}
-	else{  //大于1024的分辨率
-	//这里写要加载的代码
-	$("#css").attr("href", "Style.css");
-	//alert("大于");
-	}
-    });		
 	//cookie的获取
 	function get_cookie(cookieName){
     //判断cookie是否存在
@@ -331,9 +298,7 @@
         } 
       }
      return null;
-    }
-
-	
+    }	
     //判断字符是否为空的方法	
     function isEmpty(){ 
        var username=get_cookie("username"); 
@@ -447,5 +412,6 @@
 		getPublicvideo();
 		getPublicconnect();
 		getGoodthings();
+		showSlides(slideIndex);
 	  }	
 	</script>
